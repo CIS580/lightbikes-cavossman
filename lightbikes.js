@@ -16,22 +16,22 @@ window.onkeydown = function(event) {
   console.log(event);
   console.log(event.keyCode);
   switch(event.keyCode) {
-    //up
+    // UP
     case 38:
     case 87:
       input.up = true;
       break;
-    //left
+    // LEFT
     case 37:
     case 65:
       input.left = true;
       break;
-    //right
+    // RIGHT
     case 39:
     case 68:
       input.right = true;
       break;
-    //down
+    // DOWN
     case 40:
     case 83:
       input.down = true;
@@ -43,22 +43,22 @@ window.onkeyup = function(event) {
   console.log(event);
   console.log(event.keyCode);
   switch(event.keyCode) {
-    //up
+    // UP
     case 38:
     case 87:
       input.up = false;
       break;
-    //left
+    // LEFT
     case 37:
     case 65:
       input.left = false;
       break;
-    //right
+    // RIGHT
     case 39:
     case 68:
       input.right = false;
       break;
-    //down
+    // DOWN
     case 40:
     case 83:
       input.down = false;
