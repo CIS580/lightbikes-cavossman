@@ -1,9 +1,14 @@
 var canvas = document.getElementById('screen');
 var ctx = canvas.getContext('2d');
 var speed = 1/16/1000;
+var backCanvas = document.Create('canvas');
+var backCtx = backCanvas.getContext('2d');
 
 var x = 0;
 var y = 0;
+
+//var image = new Image();
+//image.src = "file://‪/Users/cvossman/Downloads/download.jpg"
 
 var input = {
   up: false,
@@ -66,13 +71,29 @@ window.onkeyup = function(event) {
   }
 }
 
-function loop() {
+function loop(timestamp) {
   if(input.up) y -= 1;
   if(input.down) y += 1;
   if(input.left) x -= 1;
   if(input.right) x += 1;
-  ctx.fillStyle = "red";
-  ctx.fillRect(x, y, 5, 5);
-  setTimeout(loop, speed);
+  
+  backCtx.clearRect(0, 0, canvas.width, canvas.height);
+  //backCtx.drawImage(image, 0, 0);
+  
+  
+  for (i = 0; i < 1000; i++){
+	  backCtx.fillStyle = "blue";
+	  backCtx.fillRect((i*20 % 100), (i*20 % 100), 10, 10);
+  }
+  
+  
+  backCtx.fillStyle = "red";
+  backCtx.fillRect(x, y, 5, 5);
+  //setTimeout(loop, speed);
+  requestAnimationFrame(loop);
 }
-loop();
+
+//var intervalId = setInterval(loop, speed);
+
+requestAnimationFrame(loop);
+//loop();
